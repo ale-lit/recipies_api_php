@@ -13,7 +13,7 @@ class RecipeController extends BaseController
 
     public function main($id = 0)
     {
-        if (isset($_GET['token'])) {
+        if (!isset($_GET['token'])) {
             return $this->showBadRequest();
         }
         $token = $_GET['token'];

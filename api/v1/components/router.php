@@ -19,6 +19,7 @@ class Router
                 if (preg_match("~$path~", $requestUri)) {
                     $actionWithParameters = preg_replace("~$path~", $rawActionWithParameters, $requestUri);
                     $actionWithParameters = str_replace(SITE_ROOT, "", $actionWithParameters);
+                    $actionWithParameters = explode('?', $actionWithParameters)[0];
                     $actionWithParameters = ltrim($actionWithParameters, "/");
                     $actionWithParameters = explode('/', $actionWithParameters);
                     $action = array_shift($actionWithParameters);
